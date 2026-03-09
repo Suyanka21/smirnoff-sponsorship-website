@@ -89,18 +89,10 @@
       });
     });
 
-    // Also rotate on scroll within section
-    var sectionTop = 0;
-    var sectionHeight = 0;
-
-    function updateSectionMetrics() {
-      var rect = flipper.getBoundingClientRect();
-      sectionTop = rect.top + window.scrollY;
-      sectionHeight = rect.height;
-    }
-
+    // Scroll-based rotation as fallback when auto-rotation is stopped
+    var lastScrollIndex = -1;
     window.addEventListener('scroll', function () {
-      var scrollY = window.scrollY;
+      if (autoInterval) return; // Let auto-rotation handle it
       var viewportH = window.innerHeight;
       var sectionRect = flipper.getBoundingClientRect();
 
@@ -109,9 +101,12 @@
         progress = Math.max(0, Math.min(1, progress));
         var idx = Math.floor(progress * totalImages);
         idx = Math.min(idx, totalImages - 1);
-        showImage(idx);
+        if (idx !== lastScrollIndex) {
+          lastScrollIndex = idx;
+          showImage(idx);
+        }
       }
-    });
+    }, { passive: true });
   }
 
   /* ---------- SLIDE DECK MODAL ---------- */
