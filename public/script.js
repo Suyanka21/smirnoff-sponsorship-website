@@ -1,10 +1,26 @@
 /* ============================================
-   SANDILE × SMIRNOFF – AVENGERS ASSEMBLE
-   Main Script
+   SANDILE x SMIRNOFF - AVENGERS ASSEMBLE
+   Cinematic Scroll-Driven Experience
    ============================================ */
 
 (function () {
   'use strict';
+
+  /* ---------- SCROLL PROGRESS BAR ---------- */
+  function initScrollProgress() {
+    var bar = document.querySelector('.scroll-progress');
+    if (!bar) return;
+
+    function updateProgress() {
+      var scrollTop = window.scrollY || document.documentElement.scrollTop;
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      bar.style.width = progress + '%';
+    }
+
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+  }
 
   /* ---------- SCROLL FADE-IN (IntersectionObserver) ---------- */
   function initFadeIn() {
@@ -92,7 +108,7 @@
     // Scroll-based rotation as fallback when auto-rotation is stopped
     var lastScrollIndex = -1;
     window.addEventListener('scroll', function () {
-      if (autoInterval) return; // Let auto-rotation handle it
+      if (autoInterval) return;
       var viewportH = window.innerHeight;
       var sectionRect = flipper.getBoundingClientRect();
 
@@ -112,6 +128,8 @@
   /* ---------- SLIDE DECK MODAL ---------- */
   function initDeck() {
     var modal = document.getElementById('deckModal');
+    if (!modal) return;
+
     var openBtn = document.getElementById('openDeck');
     var closeBtn = document.getElementById('closeDeck');
     var prevBtn = document.getElementById('prevSlide');
@@ -119,31 +137,33 @@
     var currentDisplay = document.getElementById('currentSlide');
     var totalDisplay = document.getElementById('totalSlides');
     var slides = modal.querySelectorAll('.slide');
+    var dots = modal.querySelectorAll('.deck-dot');
 
-    if (!modal || !slides.length) return;
+    if (!slides.length) return;
 
     var current = 0;
     var total = slides.length;
-    totalDisplay.textContent = total;
+    if (totalDisplay) totalDisplay.textContent = total;
+
+    function updateDots() {
+      dots.forEach(function (dot, i) {
+        dot.classList.toggle('active', i === current);
+      });
+    }
 
     function goToSlide(index) {
       if (index < 0 || index >= total || index === current) return;
 
-      var direction = index > current ? 1 : -1;
-
-      // Remove active from current
       slides[current].classList.remove('active');
-      slides[current].classList.add(direction > 0 ? 'exit-left' : '');
-
-      // Clean up exit class after transition
-      var prev = current;
-      setTimeout(function () {
-        slides[prev].classList.remove('exit-left');
-      }, 500);
-
       current = index;
       slides[current].classList.add('active');
-      currentDisplay.textContent = current + 1;
+      if (currentDisplay) currentDisplay.textContent = current + 1;
+
+      // Update nav button states
+      if (prevBtn) prevBtn.disabled = current === 0;
+      if (nextBtn) nextBtn.disabled = current === total - 1;
+
+      updateDots();
     }
 
     function nextSlide() {
@@ -159,11 +179,14 @@
       document.body.style.overflow = 'hidden';
       // Reset to first slide
       slides.forEach(function (s) {
-        s.classList.remove('active', 'exit-left');
+        s.classList.remove('active');
       });
       current = 0;
       slides[0].classList.add('active');
-      currentDisplay.textContent = 1;
+      if (currentDisplay) currentDisplay.textContent = 1;
+      if (prevBtn) prevBtn.disabled = true;
+      if (nextBtn) nextBtn.disabled = total <= 1;
+      updateDots();
     }
 
     function closeModal() {
@@ -171,10 +194,17 @@
       document.body.style.overflow = '';
     }
 
-    openBtn.addEventListener('click', openModal);
-    closeBtn.addEventListener('click', closeModal);
-    nextBtn.addEventListener('click', nextSlide);
-    prevBtn.addEventListener('click', prevSlide);
+    if (openBtn) openBtn.addEventListener('click', openModal);
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+
+    // Dot navigation
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () {
+        goToSlide(i);
+      });
+    });
 
     // Keyboard navigation
     document.addEventListener('keydown', function (e) {
@@ -216,7 +246,6 @@
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
             var video = entry.target;
-            // Attempt to play when visible
             var playPromise = video.play();
             if (playPromise !== undefined) {
               playPromise.catch(function () {
@@ -257,7 +286,7 @@
     window.addEventListener('scroll', handleParallax, { passive: true });
   }
 
-  /* ---------- SMOOTH NAV SCROLL INDICATOR HIDE ---------- */
+  /* ---------- SCROLL INDICATOR HIDE ---------- */
   function initScrollIndicator() {
     var indicator = document.querySelector('.scroll-indicator');
     if (!indicator) return;
@@ -274,6 +303,7 @@
 
   /* ---------- INIT ALL ---------- */
   document.addEventListener('DOMContentLoaded', function () {
+    initScrollProgress();
     initFadeIn();
     initCocktailFlipper();
     initDeck();
