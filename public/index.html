@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sandile × Smirnoff – Avengers Assemble</title>
-  <meta name="description" content="Sandile × Smirnoff – Avengers Assemble. A cinematic Afrohouse nightlife experience in Nairobi.">
+  <title>Sandile x Smirnoff - Avengers Assemble</title>
+  <meta name="description" content="Sandile x Smirnoff - Avengers Assemble. A 12-hour Afrohouse DJ marathon in Nairobi.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -12,211 +12,228 @@
   <link rel="icon" href="logo/SANDILE LOGO.jpg" type="image/jpeg">
 </head>
 <body>
-
-  <!-- ============ HERO SECTION ============ -->
+  <div class="scroll-progress" id="scrollProgress"></div>
   <section id="hero" class="hero-section">
-    <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="images/hero-art-nightclub.jpeg">
-      <source src="videos/hero-nightclub-loop.mp4" type="video/mp4">
-    </video>
+    <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="images/hero-art-nightclub.jpeg"><source src="videos/hero-nightclub-loop.mp4" type="video/mp4"></video>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <img src="logo/SANDILE LOGO.jpg" alt="Sandile Logo" class="hero-logo" />
-      <h1 class="hero-title">Sandile</h1>
-      <p class="hero-subtitle">Where Nairobi's Nightlife Comes Alive.</p>
-      <div class="scroll-indicator">
-        <span></span>
+      <img src="logo/SANDILE LOGO.jpg" alt="Sandile Logo" class="hero-logo reveal" />
+      <div class="hero-titles reveal reveal-delay-1">
+        <h1 class="hero-title">Sandile <span class="accent-red">x</span> Smirnoff</h1>
+        <h2 class="hero-subtitle-large">Avengers Assemble</h2>
+      </div>
+      <p class="hero-tagline reveal reveal-delay-2">A 12-Hour Afrohouse DJ Marathon &#8212; Nairobi</p>
+      <div class="scroll-indicator reveal reveal-delay-3">
+        <div class="scroll-mouse"><div class="scroll-dot"></div></div>
+        <span class="scroll-text">Scroll to explore</span>
       </div>
     </div>
   </section>
-
-  <!-- ============ SCROLL STORY SECTIONS ============ -->
   <section class="story-scene" data-scene="1">
-    <video class="scene-video" autoplay muted loop playsinline preload="metadata" poster="images/imagescity-nightlife.jpeg">
-      <source src="videos/city-nightlife-loop.mp4" type="video/mp4">
-    </video>
+    <video class="scene-video" autoplay muted loop playsinline preload="metadata" poster="images/imagescity-nightlife.jpeg"><source src="videos/city-nightlife-loop.mp4" type="video/mp4"></video>
     <div class="scene-overlay"></div>
-    <div class="scene-content fade-in">
-      <p class="scene-text">Every city has a rhythm.</p>
+    <div class="scene-content">
+      <span class="scene-chapter fade-in">Chapter One</span>
+      <p class="scene-text fade-in">Every city has a rhythm.</p>
+      <p class="scene-subtext fade-in">Nairobi&#8217;s beats louder than most.</p>
     </div>
   </section>
-
-  <section class="story-scene" data-scene="2">
-    <video class="scene-video" autoplay muted loop playsinline preload="metadata" poster="images/imagesevent-arrival.jpeg">
-      <source src="videos/event-arrival-loop.mp4" type="video/mp4">
-    </video>
-    <div class="scene-overlay"></div>
-    <div class="scene-content fade-in">
-      <p class="scene-text">A new nightlife experience begins.</p>
+  <section class="story-scene scene-dark" data-scene="2">
+    <div class="scene-content-wide">
+      <div class="text-block fade-in">
+        <span class="scene-chapter">The Curator</span>
+        <h2 class="section-title">Sandile is an emerging Nairobi-based concert curator focused on <span class="accent-red">Afrohouse</span>, <span class="accent-blue">Afrotech</span>, and electronic African music culture.</h2>
+        <p class="body-text">Our events bring together the city&#8217;s most exciting DJs and audiences within immersive nightlife environments that celebrate the energy of contemporary African electronic music.</p>
+      </div>
     </div>
   </section>
-
   <section class="story-scene" data-scene="3">
-    <video class="scene-video" autoplay muted loop playsinline preload="metadata" poster="images/imagesdj-b2b.png">
-      <source src="videos/dj-b2b-loop.mp4" type="video/mp4">
-    </video>
+    <video class="scene-video" autoplay muted loop playsinline preload="metadata" poster="images/imagesevent-arrival.jpeg"><source src="videos/event-arrival-loop.mp4" type="video/mp4"></video>
     <div class="scene-overlay"></div>
-    <div class="scene-content fade-in">
-      <p class="scene-text">Music without limits.</p>
+    <div class="scene-content">
+      <span class="scene-chapter fade-in">The Event</span>
+      <h2 class="scene-text fade-in">Avengers Assemble</h2>
+      <p class="scene-subtext fade-in">20&#8211;25 DJs perform back-to-back in pairs.<br>Each duo forms an Avenger team.</p>
     </div>
   </section>
-
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-item fade-in"><span class="stat-number">12</span><span class="stat-label">Hours</span></div>
+      <div class="stat-item fade-in"><span class="stat-number">4PM</span><span class="stat-label">to 4AM</span></div>
+      <div class="stat-item fade-in"><span class="stat-number">400&#8211;600</span><span class="stat-label">Guests</span></div>
+      <div class="stat-item fade-in"><span class="stat-number accent-blue">Muse</span><span class="stat-label">Lounge</span></div>
+    </div>
+    <div class="stats-genres fade-in">
+      <span class="genre-tag">Afrohouse</span>
+      <span class="genre-tag">Afrotech</span>
+      <span class="genre-tag">Amapiano</span>
+    </div>
+  </section>
   <section class="story-scene" data-scene="4">
-    <video class="scene-video" autoplay muted loop playsinline preload="metadata" poster="images/imagescrowd-energy.jpeg">
-      <source src="videos/crowd-energy-loop.mp4" type="video/mp4">
-    </video>
+    <video class="scene-video" autoplay muted loop playsinline preload="metadata" poster="images/imagesdj-b2b.png"><source src="videos/dj-b2b-loop.mp4" type="video/mp4"></video>
     <div class="scene-overlay"></div>
-    <div class="scene-content fade-in">
-      <p class="scene-text">The energy of Sandile.</p>
+    <div class="scene-content">
+      <span class="scene-chapter fade-in">The Music</span>
+      <p class="scene-text fade-in">Sunset to sunrise.</p>
+      <p class="scene-subtext fade-in">A musical narrative that never stops.</p>
     </div>
   </section>
-
-  <!-- ============ EXPERIENCE SECTION – SMIRNOFF ACTIVATIONS ============ -->
+  <section class="story-scene" data-scene="5">
+    <video class="scene-video" autoplay muted loop playsinline preload="metadata" poster="images/imagescrowd-energy.jpeg"><source src="videos/crowd-energy-loop.mp4" type="video/mp4"></video>
+    <div class="scene-overlay"></div>
+    <div class="scene-content">
+      <span class="scene-chapter fade-in">The Energy</span>
+      <p class="scene-text fade-in">The dancefloor is alive.</p>
+    </div>
+  </section>
+  <section id="audience" class="audience-section">
+    <div class="section-header fade-in">
+      <span class="scene-chapter">The Audience</span>
+      <h2 class="section-title">Nairobi&#8217;s most <span class="accent-red">culturally influential</span> nightlife demographic.</h2>
+    </div>
+    <div class="audience-grid">
+      <div class="audience-card fade-in">
+        <div class="audience-stat">18&#8211;24</div>
+        <h3>Core Age Range</h3>
+        <p>Extending into young millennials who define Nairobi&#8217;s nightlife culture.</p>
+      </div>
+      <div class="audience-card fade-in">
+        <div class="audience-stat accent-blue">KSh 3K&#8211;8K</div>
+        <h3>Evening Spend</h3>
+        <p>High discretionary spending on premium experiences and experiential culture.</p>
+      </div>
+      <div class="audience-card fade-in">
+        <div class="audience-stat accent-red">&#8734;</div>
+        <h3>Social Reach</h3>
+        <p>Every experience becomes content &#8212; Instagram Stories, TikTok, peer-to-peer sharing.</p>
+      </div>
+    </div>
+  </section>
+  <section class="story-scene scene-dark" data-scene="6">
+    <div class="scene-content-wide scene-content-center">
+      <div class="text-block fade-in">
+        <span class="scene-chapter">The Invitation</span>
+        <h2 class="cinematic-quote">We invite <span class="accent-red">Smirnoff</span> to become the official spirit partner powering this experience.</h2>
+      </div>
+    </div>
+  </section>
   <section id="experience" class="experience-section">
     <div class="section-header fade-in">
+      <span class="scene-chapter">Brand Activations</span>
       <h2 class="section-title">The <span class="accent-red">Smirnoff</span> Experience</h2>
       <p class="section-subtitle">Immersive brand activations woven into every moment.</p>
     </div>
     <div class="activation-grid">
-      <!-- Card 1 -->
       <div class="activation-card fade-in">
-        <div class="card-media">
-          <video autoplay muted loop playsinline preload="metadata" poster="images/imagessmirnoff-cocktail-bar.jpeg">
-            <source src="videos/cocktail-bar-loop.mp4" type="video/mp4">
-          </video>
-        </div>
+        <div class="card-media"><video autoplay muted loop playsinline preload="metadata" poster="images/imagessmirnoff-cocktail-bar.jpeg"><source src="videos/cocktail-bar-loop.mp4" type="video/mp4"></video></div>
         <div class="card-overlay"></div>
-        <div class="card-content">
-          <h3>Smirnoff Cocktail Experience Bar</h3>
-          <p>A visually striking central bar installation serving signature Smirnoff cocktails all night long.</p>
-        </div>
+        <div class="card-content"><h3>Smirnoff Hero Bar</h3><p>A visually striking central bar installation with illuminated shelving and premium cocktail presentation.</p></div>
       </div>
-      <!-- Card 2 -->
       <div class="activation-card fade-in">
-        <div class="card-media">
-          <video autoplay muted loop playsinline preload="metadata" poster="images/imagessmirnoff-led-installation.jpeg">
-            <source src="videos/led-installation-loop.mp4" type="video/mp4">
-          </video>
-        </div>
+        <div class="card-media"><video autoplay muted loop playsinline preload="metadata" poster="images/imagessmirnoff-led-installation.jpeg"><source src="videos/led-installation-loop.mp4" type="video/mp4"></video></div>
         <div class="card-overlay"></div>
-        <div class="card-content">
-          <h3>Smirnoff LED Installation</h3>
-          <p>An immersive LED experience that transforms the venue into a Smirnoff-branded visual spectacle.</p>
-        </div>
+        <div class="card-content"><h3>Infinity Shot Ritual</h3><p>Every two hours, the dancefloor enters an Avengers Recharge Moment &#8212; a collective celebration.</p></div>
       </div>
-      <!-- Card 3 -->
       <div class="activation-card fade-in">
-        <div class="card-media">
-          <video autoplay muted loop playsinline preload="metadata" poster="images/imagessmirnoff-photo-wall.jpeg">
-            <source src="videos/photo-wall-loop.mp4" type="video/mp4">
-          </video>
-        </div>
+        <div class="card-media"><video autoplay muted loop playsinline preload="metadata" poster="images/imagessmirnoff-photo-wall.jpeg"><source src="videos/photo-wall-loop.mp4" type="video/mp4"></video></div>
         <div class="card-overlay"></div>
-        <div class="card-content">
-          <h3>Smirnoff Photo Moment Wall</h3>
-          <p>A curated photo wall designed for social sharing — every shot amplifies the Smirnoff brand.</p>
-        </div>
+        <div class="card-content"><h3>Photo Moment Wall</h3><p>A curated photo wall designed for social sharing &#8212; every shot amplifies the Smirnoff brand.</p></div>
       </div>
     </div>
   </section>
-
-  <!-- ============ COCKTAIL ROTATION SECTION ============ -->
   <section id="cocktails" class="cocktail-section">
-    <div class="section-header fade-in">
-      <h2 class="section-title">Signature <span class="accent-blue">Cocktails</span></h2>
-      <p class="section-subtitle">Crafted for the Sandile experience.</p>
-    </div>
-    <div class="cocktail-flipbook fade-in" id="cocktailFlipper">
-      <div class="flipbook-container">
-        <div class="flipbook-inner">
-          <img src="images/imagescocktail-angle1.jpeg" alt="Cocktail Angle 1" class="cocktail-img active" data-index="0">
-          <img src="images/imagescocktail-angle2.png" alt="Cocktail Angle 2" class="cocktail-img" data-index="1">
-          <img src="images/imagescocktail-angle3.png" alt="Cocktail Angle 3" class="cocktail-img" data-index="2">
+    <div class="cocktail-layout">
+      <div class="cocktail-text fade-in">
+        <span class="scene-chapter">Cocktail Program</span>
+        <h2 class="section-title">Signature <span class="accent-blue">Cocktails</span></h2>
+        <p class="section-subtitle">Crafted around Smirnoff vodka for the Sandile experience.</p>
+        <div class="cocktail-menu">
+          <div class="cocktail-menu-item"><h4>Avengers Elixir</h4><p>Passionfruit-forward Smirnoff cocktail &#8212; the signature drink of the night.</p></div>
+          <div class="cocktail-menu-item"><h4>Infinity Mule</h4><p>A refreshing Smirnoff Mule with ginger beer and lime.</p></div>
+          <div class="cocktail-menu-item"><h4>Nairobi Sunset</h4><p>Smirnoff with fresh citrus and grenadine.</p></div>
+          <div class="cocktail-menu-item"><h4>Espresso Martini</h4><p>Late-night cocktail served during peak hours.</p></div>
         </div>
       </div>
-      <div class="cocktail-indicators">
-        <span class="indicator active" data-index="0"></span>
-        <span class="indicator" data-index="1"></span>
-        <span class="indicator" data-index="2"></span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ AUDIENCE SECTION ============ -->
-  <section id="audience" class="audience-section">
-    <div class="section-header fade-in">
-      <h2 class="section-title">Our <span class="accent-red">Audience</span></h2>
-      <p class="section-subtitle">Nairobi's most influential nightlife demographic.</p>
-    </div>
-    <div class="audience-grid">
-      <div class="audience-card fade-in">
-        <div class="audience-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <div class="cocktail-visual fade-in">
+        <div class="cocktail-flipbook" id="cocktailFlipper">
+          <div class="flipbook-container">
+            <div class="flipbook-inner">
+              <img src="images/imagescocktail-angle1.jpeg" alt="Cocktail Angle 1" class="cocktail-img active" data-index="0">
+              <img src="images/imagescocktail-angle2.png" alt="Cocktail Angle 2" class="cocktail-img" data-index="1">
+              <img src="images/imagescocktail-angle3.png" alt="Cocktail Angle 3" class="cocktail-img" data-index="2">
+            </div>
+          </div>
+          <div class="cocktail-indicators">
+            <span class="indicator active" data-index="0"></span>
+            <span class="indicator" data-index="1"></span>
+            <span class="indicator" data-index="2"></span>
+          </div>
         </div>
-        <h3>Urban Professionals</h3>
-        <p>High discretionary spend on nightlife and experiential culture. Typical evening spend: KSh 3,000 – 8,000.</p>
-      </div>
-      <div class="audience-card fade-in">
-        <div class="audience-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-        </div>
-        <h3>Creative Community</h3>
-        <p>Digital-first creators who share visually engaging moments — every experience becomes content.</p>
-      </div>
-      <div class="audience-card fade-in">
-        <div class="audience-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-        </div>
-        <h3>Nightlife Culture</h3>
-        <p>Tastemakers driving cultural influence across Nairobi's electronic music scene — 18–24 core demographic.</p>
       </div>
     </div>
   </section>
-
-  <!-- ============ PARTNERSHIP SECTION ============ -->
+  <section class="story-scene" data-scene="7">
+    <video class="scene-video" autoplay muted loop playsinline preload="metadata" poster="images/imagessmirnoff-led-installation.jpeg"><source src="videos/led-installation-loop.mp4" type="video/mp4"></video>
+    <div class="scene-overlay"></div>
+    <div class="scene-content">
+      <span class="scene-chapter fade-in">The Installation</span>
+      <p class="scene-text fade-in">Smirnoff LED Experience</p>
+      <p class="scene-subtext fade-in">Transforming the venue into a visual spectacle.</p>
+    </div>
+  </section>
+  <section class="story-scene scene-dark" data-scene="8">
+    <div class="scene-content-wide scene-content-center">
+      <div class="text-block fade-in">
+        <span class="scene-chapter">VIP Experience</span>
+        <h2 class="section-title">Hero Lounge</h2>
+        <p class="body-text">A premium VIP area offering curated bottle service experiences for high-spending groups. This space allows Smirnoff to engage directly with the event&#8217;s most premium consumers.</p>
+      </div>
+    </div>
+  </section>
+  <section class="story-scene" data-scene="9">
+    <video class="scene-video" autoplay muted loop playsinline preload="metadata" poster="images/imagessmirnoff-photo-wall.jpeg"><source src="videos/photo-wall-loop.mp4" type="video/mp4"></video>
+    <div class="scene-overlay"></div>
+    <div class="scene-content">
+      <span class="scene-chapter fade-in">Digital Amplification</span>
+      <p class="scene-text fade-in">Every moment becomes content.</p>
+      <p class="scene-subtext fade-in">A natural ecosystem of user-generated content amplifying brand experiences.</p>
+    </div>
+  </section>
   <section id="partnership" class="partnership-section">
     <div class="partnership-bg">
-      <video autoplay muted loop playsinline preload="metadata" poster="images/hero-art-nightclub.jpeg">
-        <source src="videos/hero-nightclub-loop.mp4" type="video/mp4">
-      </video>
+      <video autoplay muted loop playsinline preload="metadata" poster="images/hero-art-nightclub.jpeg"><source src="videos/hero-nightclub-loop.mp4" type="video/mp4"></video>
       <div class="partnership-overlay"></div>
     </div>
     <div class="partnership-content fade-in">
-      <h2 class="section-title">The <span class="accent-red">Partnership</span></h2>
-      <p class="partnership-intro">Sandile invites Smirnoff to become the official spirit partner powering <em>Avengers Assemble</em> — our most ambitious Afrohouse experience yet.</p>
+      <span class="scene-chapter">The Partnership</span>
+      <h2 class="section-title">Powering a New Cultural Moment</h2>
+      <p class="partnership-intro">Sandile proposes a partnership with Smirnoff &#8212; premium nightlife positioning, social-media-driven amplification, and authentic cultural connection with Nairobi&#8217;s next generation.</p>
       <div class="partnership-highlights">
-        <div class="highlight-item">
-          <span class="highlight-number">12</span>
-          <span class="highlight-label">Hour Afrohouse<br>DJ Marathon</span>
-        </div>
-        <div class="highlight-item">
-          <span class="highlight-number">400–600</span>
-          <span class="highlight-label">Attendees<br>Per Event</span>
-        </div>
-        <div class="highlight-item">
-          <span class="highlight-number">18–24</span>
-          <span class="highlight-label">Core Age<br>Demographic</span>
-        </div>
-        <div class="highlight-item">
-          <span class="highlight-number accent-blue">∞</span>
-          <span class="highlight-label">Social Media<br>Amplification</span>
-        </div>
+        <div class="highlight-item fade-in"><span class="highlight-number">KSh 600K</span><span class="highlight-label">Partnership<br>Value</span></div>
+        <div class="highlight-item fade-in"><span class="highlight-number">12</span><span class="highlight-label">Hour DJ<br>Marathon</span></div>
+        <div class="highlight-item fade-in"><span class="highlight-number">400&#8211;600</span><span class="highlight-label">Premium<br>Attendees</span></div>
+        <div class="highlight-item fade-in"><span class="highlight-number accent-blue">&#8734;</span><span class="highlight-label">Social Media<br>Amplification</span></div>
       </div>
-      <p class="partnership-closing">Premium nightlife positioning, social-media-driven amplification, and authentic cultural connection with Nairobi's next generation.</p>
       <button class="cta-button" id="openDeck">
         <span>Download Full Sponsorship Proposal</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
       </button>
     </div>
   </section>
-
-  <!-- ============ FOOTER ============ -->
+  <section class="story-scene" data-scene="10">
+    <video class="scene-video" autoplay muted loop playsinline preload="metadata" poster="images/imagescrowd-energy.jpeg"><source src="videos/crowd-energy-loop.mp4" type="video/mp4"></video>
+    <div class="scene-overlay scene-overlay-heavy"></div>
+    <div class="scene-content">
+      <img src="logo/SANDILE LOGO.jpg" alt="Sandile" class="scene-logo fade-in">
+      <p class="scene-text fade-in">Smirnoff becomes the <span class="accent-red">energy behind the dancefloor</span>.</p>
+      <p class="scene-subtext fade-in">Powering a new cultural moment in Nairobi nightlife.</p>
+    </div>
+  </section>
   <footer class="site-footer">
     <img src="logo/SANDILE LOGO.jpg" alt="Sandile" class="footer-logo">
-    <p>&copy; 2026 Sandile. All rights reserved.</p>
-    <p class="footer-tagline">Nairobi's Afrohouse Movement</p>
+    <p>&#169; 2026 Sandile. All rights reserved.</p>
+    <p class="footer-tagline">Nairobi&#8217;s Afrohouse Movement</p>
   </footer>
-
-  <!-- ============ SLIDE DECK MODAL ============ -->
   <div class="deck-modal" id="deckModal">
     <div class="deck-wrapper">
       <button class="deck-close" id="closeDeck" aria-label="Close">
@@ -232,200 +249,146 @@
         </button>
       </div>
       <div class="deck-slides" id="deckSlides">
-
-        <!-- Slide 1: Title -->
         <div class="slide active" data-slide="1">
-          <div class="slide-bg-img" style="background-image: url('images/hero-art-nightclub.jpeg')"></div>
+          <div class="slide-bg-vid"><video autoplay muted loop playsinline poster="images/hero-art-nightclub.jpeg"><source src="videos/hero-nightclub-loop.mp4" type="video/mp4"></video></div>
           <div class="slide-overlay"></div>
           <div class="slide-body slide-center">
             <img src="logo/SANDILE LOGO.jpg" alt="Sandile" class="slide-logo">
-            <h2>Sandile × Smirnoff</h2>
+            <h2>Sandile x Smirnoff</h2>
             <h3 class="accent-red">Avengers Assemble</h3>
             <p class="slide-tagline">Sponsorship Proposal</p>
           </div>
         </div>
-
-        <!-- Slide 2: Introduction -->
         <div class="slide" data-slide="2">
-          <div class="slide-bg-img" style="background-image: url('images/imagescity-nightlife.jpeg')"></div>
+          <div class="slide-bg-img" style="background-image: url(&#39;images/imagescity-nightlife.jpeg&#39;)"></div>
           <div class="slide-overlay"></div>
           <div class="slide-body">
             <h2>Introduction</h2>
             <p>Sandile is an emerging Nairobi-based concert curator focused on Afrohouse, Afrotech, and electronic African music culture.</p>
-            <p>Our events bring together the city's most exciting DJs and audiences within immersive nightlife environments that celebrate the energy of contemporary African electronic music.</p>
+            <p>Our events bring together the city&#8217;s most exciting DJs and audiences within immersive nightlife environments.</p>
             <p>Our next production, <strong>Avengers Assemble</strong>, represents our most ambitious concept yet.</p>
             <p class="accent-red"><strong>We invite Smirnoff to become the official spirit partner powering this experience.</strong></p>
           </div>
         </div>
-
-        <!-- Slide 3: The Event -->
         <div class="slide" data-slide="3">
-          <div class="slide-bg-img" style="background-image: url('images/imagesdj-b2b.png')"></div>
+          <div class="slide-bg-vid"><video autoplay muted loop playsinline poster="images/imagesdj-b2b.png"><source src="videos/dj-b2b-loop.mp4" type="video/mp4"></video></div>
           <div class="slide-overlay"></div>
           <div class="slide-body">
-            <h2>The Event – Avengers Assemble</h2>
-            <p>A <strong>12-hour Afrohouse DJ marathon</strong> where 20–25 DJs perform back-to-back in pairs, creating collaborative sonic exchanges throughout the night.</p>
+            <h2>The Event &#8212; Avengers Assemble</h2>
+            <p>A <strong>12-hour Afrohouse DJ marathon</strong> where 20&#8211;25 DJs perform back-to-back in pairs, creating collaborative sonic exchanges throughout the night.</p>
             <p>Each DJ pair forms an <em>Avenger team</em>, contributing to a musical narrative that builds from sunset to sunrise.</p>
           </div>
         </div>
-
-        <!-- Slide 4: Event Format -->
         <div class="slide" data-slide="4">
-          <div class="slide-bg-img" style="background-image: url('images/imagesevent-arrival.jpeg')"></div>
+          <div class="slide-bg-vid"><video autoplay muted loop playsinline poster="images/imagesevent-arrival.jpeg"><source src="videos/event-arrival-loop.mp4" type="video/mp4"></video></div>
           <div class="slide-overlay"></div>
           <div class="slide-body">
             <h2>Event Format</h2>
             <div class="slide-stats">
-              <div class="stat"><span class="stat-value">4 PM – 4 AM</span><span class="stat-label">Time</span></div>
+              <div class="stat"><span class="stat-value">4 PM &#8211; 4 AM</span><span class="stat-label">Time</span></div>
               <div class="stat"><span class="stat-value">12 Hours</span><span class="stat-label">Duration</span></div>
-              <div class="stat"><span class="stat-value">400–600</span><span class="stat-label">Guests</span></div>
+              <div class="stat"><span class="stat-value">400&#8211;600</span><span class="stat-label">Guests</span></div>
               <div class="stat"><span class="stat-value">Muse Lounge</span><span class="stat-label">Venue</span></div>
             </div>
             <p><strong>Music Focus:</strong> Afrohouse, Afrotech, Amapiano-influenced electronic sounds</p>
           </div>
         </div>
-
-        <!-- Slide 5: The Audience -->
         <div class="slide" data-slide="5">
-          <div class="slide-bg-img" style="background-image: url('images/imagescrowd-energy.jpeg')"></div>
+          <div class="slide-bg-vid"><video autoplay muted loop playsinline poster="images/imagescrowd-energy.jpeg"><source src="videos/crowd-energy-loop.mp4" type="video/mp4"></video></div>
           <div class="slide-overlay"></div>
           <div class="slide-body">
             <h2>The Audience</h2>
             <p>Sandile attracts a young, culturally influential nightlife demographic.</p>
             <div class="slide-stats">
-              <div class="stat"><span class="stat-value">18–24</span><span class="stat-label">Primary Age Range</span></div>
-              <div class="stat"><span class="stat-value">KSh 3K–8K</span><span class="stat-label">Spend Per Evening</span></div>
+              <div class="stat"><span class="stat-value">18&#8211;24</span><span class="stat-label">Primary Age Range</span></div>
+              <div class="stat"><span class="stat-value">KSh 3K&#8211;8K</span><span class="stat-label">Spend Per Evening</span></div>
             </div>
             <p>Attendees prioritize premium experiences and visually engaging environments they can share digitally.</p>
           </div>
         </div>
-
-        <!-- Slide 6: Digital Amplification -->
         <div class="slide" data-slide="6">
-          <div class="slide-bg-img" style="background-image: url('images/imagessmirnoff-photo-wall.jpeg')"></div>
+          <div class="slide-bg-vid"><video autoplay muted loop playsinline poster="images/imagessmirnoff-photo-wall.jpeg"><source src="videos/photo-wall-loop.mp4" type="video/mp4"></video></div>
           <div class="slide-overlay"></div>
           <div class="slide-body">
             <h2>Digital Amplification</h2>
-            <p>Social media documentation is integral to nightlife participation. Attendees actively record and share:</p>
-            <ul class="slide-list">
-              <li>Instagram Stories</li>
-              <li>TikTok content</li>
-              <li>Peer-to-peer sharing</li>
-            </ul>
-            <p>This creates a natural ecosystem of <strong>user-generated content</strong> that amplifies the event and integrated brand experiences.</p>
+            <p>Social media documentation is integral to nightlife participation:</p>
+            <ul class="slide-list"><li>Instagram Stories</li><li>TikTok content</li><li>Peer-to-peer sharing</li></ul>
+            <p>This creates a natural ecosystem of <strong>user-generated content</strong> amplifying brand experiences.</p>
           </div>
         </div>
-
-        <!-- Slide 7: Cocktail Program -->
         <div class="slide" data-slide="7">
-          <div class="slide-bg-img" style="background-image: url('images/imagessmirnoff-cocktail-bar.jpeg')"></div>
+          <div class="slide-bg-vid"><video autoplay muted loop playsinline poster="images/imagessmirnoff-cocktail-bar.jpeg"><source src="videos/cocktail-bar-loop.mp4" type="video/mp4"></video></div>
           <div class="slide-overlay"></div>
           <div class="slide-body">
             <h2>Smirnoff Cocktail Program</h2>
             <p>A curated cocktail menu centered on Smirnoff vodka.</p>
             <div class="cocktail-list">
-              <div class="cocktail-item">
-                <h4>Avengers Elixir</h4>
-                <p>Passionfruit-forward Smirnoff cocktail</p>
-              </div>
-              <div class="cocktail-item">
-                <h4>Infinity Mule</h4>
-                <p>Smirnoff Mule with ginger beer &amp; lime</p>
-              </div>
-              <div class="cocktail-item">
-                <h4>Nairobi Sunset</h4>
-                <p>Fresh citrus and grenadine</p>
-              </div>
-              <div class="cocktail-item">
-                <h4>Espresso Martini</h4>
-                <p>Late-night cocktail at peak hours</p>
-              </div>
+              <div class="cocktail-item"><h4>Avengers Elixir</h4><p>Passionfruit-forward Smirnoff cocktail</p></div>
+              <div class="cocktail-item"><h4>Infinity Mule</h4><p>Smirnoff Mule with ginger beer and lime</p></div>
+              <div class="cocktail-item"><h4>Nairobi Sunset</h4><p>Fresh citrus and grenadine</p></div>
+              <div class="cocktail-item"><h4>Espresso Martini</h4><p>Late-night cocktail at peak hours</p></div>
             </div>
           </div>
         </div>
-
-        <!-- Slide 8: Smirnoff Activations -->
         <div class="slide" data-slide="8">
-          <div class="slide-bg-img" style="background-image: url('images/imagessmirnoff-led-installation.jpeg')"></div>
+          <div class="slide-bg-vid"><video autoplay muted loop playsinline poster="images/imagessmirnoff-led-installation.jpeg"><source src="videos/led-installation-loop.mp4" type="video/mp4"></video></div>
           <div class="slide-overlay"></div>
           <div class="slide-body">
             <h2>Smirnoff Activations</h2>
             <div class="activation-list">
-              <div class="activation-item">
-                <h4>Infinity Shot Ritual</h4>
-                <p>Every two hours, the crowd participates in a collective Infinity Shot celebration.</p>
-              </div>
-              <div class="activation-item">
-                <h4>Smirnoff Hero Bar</h4>
-                <p>A visually striking central bar that naturally appears in social-media content.</p>
-              </div>
-              <div class="activation-item">
-                <h4>Hero Lounge</h4>
-                <p>A premium VIP area for high-spending groups.</p>
-              </div>
+              <div class="activation-item"><h4>Infinity Shot Ritual</h4><p>Every two hours, the crowd participates in a collective Infinity Shot celebration.</p></div>
+              <div class="activation-item"><h4>Smirnoff Hero Bar</h4><p>A visually striking central bar that naturally appears in social-media content.</p></div>
+              <div class="activation-item"><h4>Hero Lounge</h4><p>A premium VIP area for high-spending groups.</p></div>
             </div>
           </div>
         </div>
-
-        <!-- Slide 9: Partnership Opportunity -->
         <div class="slide" data-slide="9">
-          <div class="slide-bg-img" style="background-image: url('images/hero-art-nightclub.jpeg')"></div>
+          <div class="slide-bg-vid"><video autoplay muted loop playsinline poster="images/hero-art-nightclub.jpeg"><source src="videos/hero-nightclub-loop.mp4" type="video/mp4"></video></div>
           <div class="slide-overlay"></div>
           <div class="slide-body slide-center">
             <h2>Partnership Opportunity</h2>
-            <div class="partnership-value">
-              <span class="value-amount">KSh 600,000</span>
-              <span class="value-label">+ Product Supply</span>
-            </div>
+            <div class="partnership-value"><span class="value-amount">KSh 600,000</span><span class="value-label">+ Product Supply</span></div>
             <p>Enabling full experiential production, cocktail programming, and brand integration.</p>
           </div>
         </div>
-
-        <!-- Slide 10: What Smirnoff Gets -->
         <div class="slide" data-slide="10">
-          <div class="slide-bg-img" style="background-image: url('images/imagessmirnoff-cocktail-bar.jpeg')"></div>
+          <div class="slide-bg-vid"><video autoplay muted loop playsinline poster="images/imagessmirnoff-cocktail-bar.jpeg"><source src="videos/cocktail-bar-loop.mp4" type="video/mp4"></video></div>
           <div class="slide-overlay"></div>
           <div class="slide-body">
             <h2>What Smirnoff Gets</h2>
             <ul class="slide-list highlight-list">
               <li>Title sponsorship of Avengers Assemble</li>
-              <li>Branded cocktail menu &amp; bar installations</li>
+              <li>Branded cocktail menu and bar installations</li>
               <li>LED installation brand integration</li>
               <li>Photo wall brand presence</li>
               <li>Social media amplification through UGC</li>
-              <li>Premium nightlife audience of 400–600</li>
+              <li>Premium nightlife audience of 400&#8211;600</li>
               <li>12-hour brand immersion experience</li>
             </ul>
           </div>
         </div>
-
-        <!-- Slide 11: Event Visuals -->
         <div class="slide" data-slide="11">
-          <div class="slide-bg-img" style="background-image: url('images/imagescrowd-energy.jpeg')"></div>
+          <div class="slide-bg-vid"><video autoplay muted loop playsinline poster="images/imagescrowd-energy.jpeg"><source src="videos/crowd-energy-loop.mp4" type="video/mp4"></video></div>
           <div class="slide-overlay"></div>
           <div class="slide-body slide-center">
             <h2>The Experience</h2>
-            <p class="slide-tagline">From sunset to sunrise — 12 hours of pure Afrohouse energy.</p>
+            <p class="slide-tagline">From sunset to sunrise &#8212; 12 hours of pure Afrohouse energy.</p>
           </div>
         </div>
-
-        <!-- Slide 12: Closing -->
         <div class="slide" data-slide="12">
-          <div class="slide-bg-img" style="background-image: url('images/imagesdj-b2b.png')"></div>
+          <div class="slide-bg-vid"><video autoplay muted loop playsinline poster="images/imagesdj-b2b.png"><source src="videos/dj-b2b-loop.mp4" type="video/mp4"></video></div>
           <div class="slide-overlay"></div>
           <div class="slide-body slide-center">
             <img src="logo/SANDILE LOGO.jpg" alt="Sandile" class="slide-logo">
-            <h2>Let's Create Something <span class="accent-red">Unforgettable</span></h2>
-            <p>Avengers Assemble celebrates Nairobi's Afrohouse community and the DJs shaping its sound.</p>
-            <p>Through this partnership, Smirnoff becomes the energy behind the dancefloor, powering a new cultural moment in Nairobi nightlife.</p>
+            <h2>Let&#8217;s Create Something <span class="accent-red">Unforgettable</span></h2>
+            <p>Avengers Assemble celebrates Nairobi&#8217;s Afrohouse community and the DJs shaping its sound.</p>
+            <p>Through this partnership, Smirnoff becomes the energy behind the dancefloor.</p>
             <p class="slide-tagline accent-blue">Sandile invites Smirnoff to join us.</p>
           </div>
         </div>
-
       </div>
     </div>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
