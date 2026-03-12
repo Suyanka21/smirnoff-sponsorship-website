@@ -1311,8 +1311,8 @@ video::-webkit-media-controls {
 }
 .journey-img {
   width: 100%;
-  height: 220px;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   border-radius: 16px;
   transition: transform 0.4s ease;
 }
@@ -1666,6 +1666,7 @@ video::-webkit-media-controls {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   z-index: 0;
 }
 
@@ -1966,11 +1967,15 @@ video::-webkit-media-controls {
   }
   .deck-nav {
     padding: 1rem 1.5rem;
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    background: rgba(0, 0, 0, 0.9);
   }
   .nav-btn,
   .deck-nav-btn {
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.4);
   }
   .slide-stats {
     grid-template-columns: repeat(2, 1fr);
@@ -2029,13 +2034,22 @@ video::-webkit-media-controls {
     direction: ltr;
   }
   .journey-img-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+  }
+  .journey-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
   }
   .journey-event-gallery {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
   .journey-artists-strip {
     justify-content: center;
+  }
+  .scene-image {
+    object-fit: contain;
+    background: var(--black);
   }
 
   /* Lineup */
@@ -2181,7 +2195,8 @@ video::-webkit-media-controls {
     grid-template-columns: 1fr;
   }
   .journey-img {
-    height: 180px;
+    height: auto;
+    object-fit: contain;
   }
   .journey-event-title {
     font-size: 1.3rem;

@@ -152,12 +152,29 @@
       });
     }
 
+    function playSlideVideos(slideEl) {
+      var videos = slideEl.querySelectorAll('video');
+      videos.forEach(function (v) {
+        v.muted = true;
+        v.play().catch(function () {});
+      });
+    }
+
+    function pauseSlideVideos(slideEl) {
+      var videos = slideEl.querySelectorAll('video');
+      videos.forEach(function (v) {
+        v.pause();
+      });
+    }
+
     function goToSlide(index) {
       if (index < 0 || index >= total || index === current) return;
 
+      pauseSlideVideos(slides[current]);
       slides[current].classList.remove('active');
       current = index;
       slides[current].classList.add('active');
+      playSlideVideos(slides[current]);
       if (currentDisplay) currentDisplay.textContent = current + 1;
 
       // Update nav button states
@@ -181,9 +198,14 @@
       // Reset to first slide
       slides.forEach(function (s) {
         s.classList.remove('active');
+        // Pause all slide videos first
+        var vids = s.querySelectorAll('video');
+        vids.forEach(function (v) { v.pause(); });
       });
       current = 0;
       slides[0].classList.add('active');
+      // Force play videos in the active slide
+      playSlideVideos(slides[0]);
       if (currentDisplay) currentDisplay.textContent = 1;
       if (prevBtn) prevBtn.disabled = true;
       if (nextBtn) nextBtn.disabled = total <= 1;
@@ -193,6 +215,11 @@
     function closeModal() {
       modal.classList.remove('open');
       document.body.style.overflow = '';
+      // Pause all deck videos when closing
+      slides.forEach(function (s) {
+        var vids = s.querySelectorAll('video');
+        vids.forEach(function (v) { v.pause(); });
+      });
     }
 
     if (openBtn) openBtn.addEventListener('click', openModal);
