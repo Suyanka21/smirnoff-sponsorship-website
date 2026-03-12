@@ -10,14 +10,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="logo/SANDILE LOGO.jpg" type="image/jpeg">
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 </head>
 <body>
   <div class="scroll-progress" id="scrollProgress"></div>
   <section id="hero" class="hero-section">
     <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="images/hero-art-nightclub.jpeg"><source src="videos/hero-nightclub-loop.mp4" type="video/mp4"></video>
     <div class="hero-overlay"></div>
+    <div class="hero-vignette"></div>
+    <div class="hero-grain"></div>
     <div class="hero-content">
-      <img src="logo/SANDILE LOGO.jpg" alt="Sandile Logo" class="hero-logo reveal" />
+      <div class="hero-logo-circle reveal">
+        <img src="logo/SANDILE LOGO.jpg" alt="Sandile Logo" class="hero-logo-img" />
+      </div>
       <div class="hero-titles reveal reveal-delay-1">
         <h1 class="hero-title">Sandile <span class="accent-red">x</span> Smirnoff</h1>
         <h2 class="hero-subtitle-large">Avengers Assemble</h2>
@@ -53,14 +60,14 @@
     <div class="scene-content">
       <span class="scene-chapter fade-in">The Event</span>
       <h2 class="scene-text fade-in">Avengers Assemble</h2>
-      <p class="scene-subtext fade-in">20&#8211;25 DJs perform back-to-back in pairs.<br>Each duo forms an Avenger team.</p>
+      <p class="scene-subtext fade-in">20 DJs perform back-to-back in pairs.<br>Each duo forms an Avenger team.</p>
     </div>
   </section>
   <section class="stats-section">
     <div class="stats-grid">
       <div class="stat-item fade-in"><span class="stat-number">12</span><span class="stat-label">Hours</span></div>
       <div class="stat-item fade-in"><span class="stat-number">4PM</span><span class="stat-label">to 4AM</span></div>
-      <div class="stat-item fade-in"><span class="stat-number">400&#8211;600</span><span class="stat-label">Guests</span></div>
+      <div class="stat-item fade-in"><span class="stat-number">800&#8211;1200</span><span class="stat-label">Attendees</span></div>
       <div class="stat-item fade-in"><span class="stat-number accent-blue">Muse</span><span class="stat-label">Lounge</span></div>
     </div>
     <div class="stats-genres fade-in">
@@ -158,15 +165,17 @@
         <div class="cocktail-flipbook" id="cocktailFlipper">
           <div class="flipbook-container">
             <div class="flipbook-inner">
-              <img src="images/imagescocktail-angle1.jpeg" alt="Cocktail Angle 1" class="cocktail-img active" data-index="0">
-              <img src="images/imagescocktail-angle2.png" alt="Cocktail Angle 2" class="cocktail-img" data-index="1">
-              <img src="images/imagescocktail-angle3.png" alt="Cocktail Angle 3" class="cocktail-img" data-index="2">
+              <video src="videos/Avengers cocktail-animation.mp4" class="cocktail-vid active" data-index="0" autoplay muted loop playsinline></video>
+              <video src="videos/Infinity cocktail-animation.mp4" class="cocktail-vid" data-index="1" autoplay muted loop playsinline></video>
+              <video src="videos/esperesso-martini cocktail-animation.mp4" class="cocktail-vid" data-index="2" autoplay muted loop playsinline></video>
+              <video src="videos/nairobi-sunset-cocktail-animation.mp4" class="cocktail-vid" data-index="3" autoplay muted loop playsinline></video>
             </div>
           </div>
           <div class="cocktail-indicators">
             <span class="indicator active" data-index="0"></span>
             <span class="indicator" data-index="1"></span>
             <span class="indicator" data-index="2"></span>
+            <span class="indicator" data-index="3"></span>
           </div>
         </div>
       </div>
@@ -211,12 +220,12 @@
       <div class="partnership-highlights">
         <div class="highlight-item fade-in"><span class="highlight-number">KSh 600K</span><span class="highlight-label">Partnership<br>Value</span></div>
         <div class="highlight-item fade-in"><span class="highlight-number">12</span><span class="highlight-label">Hour DJ<br>Marathon</span></div>
-        <div class="highlight-item fade-in"><span class="highlight-number">400&#8211;600</span><span class="highlight-label">Premium<br>Attendees</span></div>
+        <div class="highlight-item fade-in"><span class="highlight-number">800&#8211;1200</span><span class="highlight-label">Premium<br>Attendees</span></div>
         <div class="highlight-item fade-in"><span class="highlight-number accent-blue">&#8734;</span><span class="highlight-label">Social Media<br>Amplification</span></div>
       </div>
       <button class="cta-button" id="openDeck">
-        <span>Download Full Sponsorship Proposal</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span>View Partnership Proposal</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
       </button>
     </div>
   </section>
@@ -229,6 +238,254 @@
       <p class="scene-subtext fade-in">Powering a new cultural moment in Nairobi nightlife.</p>
     </div>
   </section>
+  <!-- STEP 2: THE ARENA -->
+  <section id="arena" class="arena-section">
+    <div class="arena-bg">
+      <img src="images/masshouse-arena.jpg" alt="Masshouse Arena Nairobi" class="arena-bg-img gsap-reveal">
+      <div class="arena-overlay"></div>
+    </div>
+    <div class="arena-content">
+      <span class="scene-chapter fade-in">The Arena</span>
+      <h2 class="section-title fade-in">THE ARENA</h2>
+      <h3 class="arena-venue fade-in">Masshouse Nairobi</h3>
+      <p class="body-text fade-in">Masshouse is one of Nairobi&#8217;s largest nightlife venues known for hosting premium electronic music events.</p>
+      <p class="body-text fade-in">For Avengers Assemble, the venue transforms into a 12-hour Afrohouse arena featuring:</p>
+      <div class="arena-features">
+        <div class="arena-feature fade-in"><span class="arena-icon">&#9679;</span> Central DJ stage</div>
+        <div class="arena-feature fade-in"><span class="arena-icon">&#9679;</span> Immersive lighting production</div>
+        <div class="arena-feature fade-in"><span class="arena-icon">&#9679;</span> Smirnoff cocktail program</div>
+        <div class="arena-feature fade-in"><span class="arena-icon">&#9679;</span> Large-scale dancefloor energy</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 3: THE SANDILE JOURNEY -->
+  <section id="sandile-journey" class="journey-section">
+    <div class="section-header fade-in">
+      <span class="scene-chapter">The Journey</span>
+      <h2 class="section-title">THE SANDILE JOURNEY</h2>
+      <p class="section-subtitle">The growth of Sandile within Nairobi&#8217;s Afrohouse scene.</p>
+    </div>
+
+    <!-- Event 1: Sandile Sundowner -->
+    <div class="journey-event">
+      <div class="journey-event-content fade-in">
+        <span class="journey-event-label">Event 1</span>
+        <h3 class="journey-event-title">Sandile Sundowner</h3>
+        <p class="body-text">The Sandile journey began with an intimate sunset gathering hosted at Park Inn by Radisson.</p>
+      </div>
+      <div class="journey-event-gallery">
+        <img src="images/sandile-sundwoner-radisson-1.jpg" alt="Sandile Sundowner at Radisson 1" class="journey-img gsap-reveal">
+        <img src="images/sandile-sundowner-radisson-2.jpg" alt="Sandile Sundowner at Radisson 2" class="journey-img gsap-reveal">
+      </div>
+    </div>
+
+    <!-- Event 2: B2B in the Jungle -->
+    <div class="journey-event">
+      <div class="journey-event-content fade-in">
+        <span class="journey-event-label">Event 2</span>
+        <h3 class="journey-event-title">B2B in the Jungle</h3>
+        <p class="body-text">Sandile partnered with 720 Music Lab to host B2B in the Jungle at KODA Nairobi.</p>
+        <div class="journey-headliners">
+          <span class="headliner-tag">BigNyagz</span>
+          <span class="headliner-tag">Tina Ador</span>
+          <span class="headliner-tag accent-blue">GorillaFace <small>(Sandile Resident)</small></span>
+        </div>
+      </div>
+      <div class="journey-event-gallery journey-gallery-large">
+        <img src="images/b2b-jungle-koda-1.jpeg" alt="B2B in the Jungle KODA 1" class="journey-img gsap-reveal">
+        <img src="images/b2b-jungle-koda-2.jpg" alt="B2B in the Jungle KODA 2" class="journey-img gsap-reveal">
+        <img src="images/big-nyagz.jpg" alt="BigNyagz" class="journey-img gsap-reveal">
+        <img src="images/tina-ador.jpg" alt="Tina Ador" class="journey-img gsap-reveal">
+        <img src="images/gorillaface-sandile.jpg" alt="GorillaFace Sandile Resident" class="journey-img gsap-reveal">
+      </div>
+    </div>
+
+    <!-- Event 3: One Year Anniversary -->
+    <div class="journey-event">
+      <div class="journey-event-content fade-in">
+        <span class="journey-event-label">Event 3</span>
+        <h3 class="journey-event-title">Sandile One Year Anniversary</h3>
+        <p class="body-text">South African artist Sykes headlined the one-year anniversary event at KODA Nairobi with approximately 800 attendees.</p>
+      </div>
+      <div class="journey-event-gallery">
+        <img src="images/sykes-headline-koda-1.jpg" alt="Sykes at KODA 1" class="journey-img gsap-reveal">
+        <img src="images/sykes-headline-koda-2.jpg" alt="Sykes at KODA 2" class="journey-img gsap-reveal">
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 4: COMMUNITY STATEMENT -->
+  <section class="community-section" style="background-image: url('images/IMG_7142 (1).jpg');">
+    <div class="community-overlay"></div>
+    <div class="community-content fade-in">
+      <p class="cinematic-quote">Through these events, Sandile has organically built a growing community of <span class="accent-red">Afrohouse</span> and <span class="accent-blue">Afrotech</span> music lovers within Nairobi&#8217;s nightlife landscape.</p>
+      <p class="body-text" style="margin-top:1.5rem; text-align:center;">The platform continues to evolve as a curator of music experiences rather than a single event.</p>
+    </div>
+  </section>
+
+  <!-- STEP 5: AVENGERS ASSEMBLE DJ LINEUP -->
+  <section id="dj-lineup" class="lineup-section">
+    <div class="section-header fade-in">
+      <span class="scene-chapter">The Lineup</span>
+      <h2 class="section-title">AVENGERS ASSEMBLE</h2>
+      <p class="section-subtitle">20 DJs performing back-to-back in pairs.</p>
+    </div>
+    <div class="lineup-grid">
+      <div class="dj-card gsap-reveal"><div class="dj-portrait"><img src="images/euggy-dj.jpg" alt="DJ 1"></div><div class="dj-info"><span class="dj-name">DJ Avenger 1</span></div></div>
+      <div class="dj-card gsap-reveal"><div class="dj-portrait"><img src="images/suraj-dj.jpg" alt="DJ 2"></div><div class="dj-info"><span class="dj-name">DJ Avenger 2</span></div></div>
+      <div class="dj-card gsap-reveal"><div class="dj-portrait"><img src="images/big-nyagz.jpg" alt="BigNyagz"></div><div class="dj-info"><span class="dj-name">BigNyagz</span></div></div>
+      <div class="dj-card gsap-reveal"><div class="dj-portrait"><img src="images/tina-ador.jpg" alt="Tina Ador"></div><div class="dj-info"><span class="dj-name">Tina Ador</span></div></div>
+      <div class="dj-card gsap-reveal"><div class="dj-portrait"><img src="images/gorillaface-sandile.jpg" alt="GorillaFace"></div><div class="dj-info"><span class="dj-name">GorillaFace</span></div></div>
+      <div class="dj-card gsap-reveal"><div class="dj-portrait"><img src="images/sykes-headline-koda-1.jpg" alt="Sykes"></div><div class="dj-info"><span class="dj-name">Sykes</span></div></div>
+      <div class="dj-card gsap-reveal"><div class="dj-portrait"><img src="images/imagesdj-b2b.png" alt="DJ 7"></div><div class="dj-info"><span class="dj-name">DJ Avenger 7</span></div></div>
+      <div class="dj-card gsap-reveal"><div class="dj-portrait"><img src="images/imagescrowd-energy.jpeg" alt="DJ 8"></div><div class="dj-info"><span class="dj-name">DJ Avenger 8</span></div></div>
+      <div class="dj-card gsap-reveal"><div class="dj-portrait"><img src="images/imagesevent-arrival.jpeg" alt="DJ 9"></div><div class="dj-info"><span class="dj-name">DJ Avenger 9</span></div></div>
+      <div class="dj-card gsap-reveal"><div class="dj-portrait"><img src="images/cultural-section.jpg" alt="DJ 10"></div><div class="dj-info"><span class="dj-name">DJ Avenger 10</span></div></div>
+      <div class="dj-card gsap-reveal"><div class="dj-portrait"><img src="images/b2b-jungle-koda-1.jpeg" alt="DJ 11"></div><div class="dj-info"><span class="dj-name">DJ Avenger 11</span></div></div>
+      <div class="dj-card gsap-reveal"><div class="dj-portrait"><img src="images/b2b-jungle-koda-2.jpg" alt="DJ 12"></div><div class="dj-info"><span class="dj-name">DJ Avenger 12</span></div></div>
+      <div class="dj-card gsap-reveal"><div class="dj-portrait"><img src="images/sandile-sundwoner-radisson-1.jpg" alt="DJ 13"></div><div class="dj-info"><span class="dj-name">DJ Avenger 13</span></div></div>
+      <div class="dj-card gsap-reveal"><div class="dj-portrait"><img src="images/sandile-sundowner-radisson-2.jpg" alt="DJ 14"></div><div class="dj-info"><span class="dj-name">DJ Avenger 14</span></div></div>
+      <div class="dj-card gsap-reveal"><div class="dj-portrait"><img src="images/sykes-headline-koda-2.jpg" alt="DJ 15"></div><div class="dj-info"><span class="dj-name">DJ Avenger 15</span></div></div>
+      <div class="dj-card gsap-reveal"><div class="dj-portrait"><img src="images/hero-art-nightclub.jpeg" alt="DJ 16"></div><div class="dj-info"><span class="dj-name">DJ Avenger 16</span></div></div>
+      <div class="dj-card gsap-reveal"><div class="dj-portrait"><img src="images/imagescity-nightlife.jpeg" alt="DJ 17"></div><div class="dj-info"><span class="dj-name">DJ Avenger 17</span></div></div>
+      <div class="dj-card gsap-reveal"><div class="dj-portrait"><img src="images/masshouse-arena.jpg" alt="DJ 18"></div><div class="dj-info"><span class="dj-name">DJ Avenger 18</span></div></div>
+      <div class="dj-card gsap-reveal"><div class="dj-portrait"><img src="images/smirnoff-hero-bar.jpg" alt="DJ 19"></div><div class="dj-info"><span class="dj-name">DJ Avenger 19</span></div></div>
+      <div class="dj-card gsap-reveal"><div class="dj-portrait"><img src="images/imagessmirnoff-cocktail-bar.jpeg" alt="DJ 20"></div><div class="dj-info"><span class="dj-name">DJ Avenger 20</span></div></div>
+    </div>
+  </section>
+
+  <!-- STEP 6: BRAND PARTNERS -->
+  <section id="brand-partners" class="brand-partners-section">
+    <div class="section-header fade-in">
+      <span class="scene-chapter">Brand Alliance</span>
+      <h2 class="section-title">BRAND PARTNERS</h2>
+    </div>
+    <div class="brand-grid">
+      <div class="brand-card fade-in">
+        <img src="images/imagessmirnoff-cocktail-bar.jpeg" alt="Smirnoff Cocktail Bar" class="brand-img gsap-reveal">
+        <div class="brand-card-overlay"></div>
+        <div class="brand-card-content"><h3>Smirnoff</h3><p>Official Spirit Partner</p></div>
+      </div>
+      <div class="brand-card fade-in">
+        <img src="images/tusker-lite-nightlife.png" alt="Tusker Lite Nightlife" class="brand-img gsap-reveal">
+        <div class="brand-card-overlay"></div>
+        <div class="brand-card-content"><h3>Tusker Lite</h3><p>Beer Category Partner</p></div>
+      </div>
+      <div class="brand-card fade-in">
+        <img src="images/johnnie-walker-vip-lounge.png" alt="Johnnie Walker VIP Lounge" class="brand-img gsap-reveal">
+        <div class="brand-card-overlay"></div>
+        <div class="brand-card-content"><h3>Johnnie Walker</h3><p>VIP Experience Partner</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 7: SPONSORSHIP STRUCTURE -->
+  <section id="sponsorship" class="sponsorship-section">
+    <div class="section-header fade-in">
+      <span class="scene-chapter">Investment</span>
+      <h2 class="section-title">SPONSORSHIP STRUCTURE</h2>
+    </div>
+    <div class="sponsor-tiers">
+      <div class="sponsor-tier tier-presenting fade-in">
+        <div class="tier-badge">Presenting Partner</div>
+        <h3 class="tier-brand">Smirnoff</h3>
+        <div class="tier-investment">KSh 1,200,000</div>
+        <ul class="tier-benefits">
+          <li>Naming rights</li>
+          <li>Hero cocktail bar</li>
+          <li>DJ booth integration</li>
+        </ul>
+      </div>
+      <div class="sponsor-tier tier-secondary fade-in">
+        <div class="tier-badge">Secondary Partner</div>
+        <h3 class="tier-brand">Tusker Lite</h3>
+        <div class="tier-investment">KSh 400,000 &#8211; 600,000</div>
+        <ul class="tier-benefits">
+          <li>Beer category exclusivity</li>
+          <li>Branded bar presence</li>
+        </ul>
+      </div>
+      <div class="sponsor-tier tier-experience fade-in">
+        <div class="tier-badge">Experience Partner</div>
+        <h3 class="tier-brand">Johnnie Walker</h3>
+        <div class="tier-investment">Custom Partnership</div>
+        <ul class="tier-benefits">
+          <li>VIP whisky lounge</li>
+          <li>Tasting experience</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 8: SMIRNOFF PARTNERSHIP DELIVERABLES -->
+  <section id="deliverables" class="deliverables-section">
+    <div class="section-header fade-in">
+      <span class="scene-chapter">Deliverables</span>
+      <h2 class="section-title">SMIRNOFF PARTNERSHIP DELIVERABLES</h2>
+    </div>
+    <div class="deliverables-grid">
+      <div class="deliverable-card fade-in">
+        <h4>Presenting Rights</h4>
+        <p>Sandile x Smirnoff &#8212; Avengers Assemble</p>
+      </div>
+      <div class="deliverable-card fade-in">
+        <h4>Venue Integration</h4>
+        <ul>
+          <li>Smirnoff Hero Bar</li>
+          <li>Signature Cocktail Menu</li>
+          <li>LED Brand Installations</li>
+        </ul>
+      </div>
+      <div class="deliverable-card fade-in">
+        <h4>Content Creation</h4>
+        <ul>
+          <li>Event recap film</li>
+          <li>Professional photography</li>
+          <li>DJ booth branding</li>
+        </ul>
+      </div>
+      <div class="deliverable-card fade-in">
+        <h4>Digital Amplification</h4>
+        <ul>
+          <li>Instagram campaign</li>
+          <li>DJ promotion posts</li>
+          <li>Influencer coverage</li>
+        </ul>
+      </div>
+      <div class="deliverable-card fade-in">
+        <h4>On-site Brand Moments</h4>
+        <ul>
+          <li>Smirnoff photo wall</li>
+          <li>Cocktail ritual moments</li>
+          <li>Bottle service branding</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 9: PROJECTED DIGITAL REACH -->
+  <section id="digital-reach" class="digital-reach-section">
+    <div class="section-header fade-in">
+      <span class="scene-chapter">Impact</span>
+      <h2 class="section-title">PROJECTED DIGITAL REACH</h2>
+    </div>
+    <div class="reach-stats">
+      <div class="reach-stat fade-in">
+        <span class="reach-number">800&#8211;1200</span>
+        <span class="reach-label">Projected Attendance</span>
+      </div>
+      <div class="reach-stat fade-in">
+        <span class="reach-number">2&#8211;4</span>
+        <span class="reach-label">Average Stories Per Attendee</span>
+      </div>
+      <div class="reach-stat fade-in">
+        <span class="reach-number">30K&#8211;80K</span>
+        <span class="reach-label">Estimated Social Impressions</span>
+      </div>
+    </div>
+  </section>
+
   <footer class="site-footer">
     <img src="logo/SANDILE LOGO.jpg" alt="Sandile" class="footer-logo">
     <p>&#169; 2026 Sandile. All rights reserved.</p>
@@ -260,7 +517,7 @@
           </div>
         </div>
         <div class="slide" data-slide="2">
-          <div class="slide-bg-img" style="background-image: url(&#39;images/imagescity-nightlife.jpeg&#39;)"></div>
+          <div class="slide-bg-img" style="background-image: url('images/IMG_7142 (1).jpg')"></div>
           <div class="slide-overlay"></div>
           <div class="slide-body">
             <h2>Introduction</h2>
@@ -275,7 +532,7 @@
           <div class="slide-overlay"></div>
           <div class="slide-body">
             <h2>The Event &#8212; Avengers Assemble</h2>
-            <p>A <strong>12-hour Afrohouse DJ marathon</strong> where 20&#8211;25 DJs perform back-to-back in pairs, creating collaborative sonic exchanges throughout the night.</p>
+            <p>A <strong>12-hour Afrohouse DJ marathon</strong> where 20 DJs perform back-to-back in pairs, creating collaborative sonic exchanges throughout the night.</p>
             <p>Each DJ pair forms an <em>Avenger team</em>, contributing to a musical narrative that builds from sunset to sunrise.</p>
           </div>
         </div>
@@ -287,7 +544,7 @@
             <div class="slide-stats">
               <div class="stat"><span class="stat-value">4 PM &#8211; 4 AM</span><span class="stat-label">Time</span></div>
               <div class="stat"><span class="stat-value">12 Hours</span><span class="stat-label">Duration</span></div>
-              <div class="stat"><span class="stat-value">400&#8211;600</span><span class="stat-label">Guests</span></div>
+              <div class="stat"><span class="stat-value">800&#8211;1200</span><span class="stat-label">Attendees</span></div>
               <div class="stat"><span class="stat-value">Muse Lounge</span><span class="stat-label">Venue</span></div>
             </div>
             <p><strong>Music Focus:</strong> Afrohouse, Afrotech, Amapiano-influenced electronic sounds</p>
@@ -362,7 +619,7 @@
               <li>LED installation brand integration</li>
               <li>Photo wall brand presence</li>
               <li>Social media amplification through UGC</li>
-              <li>Premium nightlife audience of 400&#8211;600</li>
+              <li>Premium nightlife audience of 800&#8211;1200</li>
               <li>12-hour brand immersion experience</li>
             </ul>
           </div>

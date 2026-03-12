@@ -49,17 +49,18 @@
     var flipper = document.getElementById('cocktailFlipper');
     if (!flipper) return;
 
-    var images = flipper.querySelectorAll('.cocktail-img');
+    // Support both video (.cocktail-vid) and image (.cocktail-img) elements
+    var items = flipper.querySelectorAll('.cocktail-vid, .cocktail-img');
     var indicators = flipper.querySelectorAll('.indicator');
     var currentIndex = 0;
-    var totalImages = images.length;
+    var totalImages = items.length;
 
     function showImage(index) {
       if (index === currentIndex) return;
-      images[currentIndex].classList.remove('active');
+      items[currentIndex].classList.remove('active');
       indicators[currentIndex].classList.remove('active');
       currentIndex = index;
-      images[currentIndex].classList.add('active');
+      items[currentIndex].classList.add('active');
       indicators[currentIndex].classList.add('active');
     }
 
@@ -301,6 +302,157 @@
     }, { passive: true });
   }
 
+  /* ---------- GSAP SCROLLTRIGGER REVEAL ANIMATIONS ---------- */
+  function initGSAPReveal() {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Reveal all .gsap-reveal elements with fade + slide from bottom
+    var revealElements = document.querySelectorAll('.gsap-reveal');
+    revealElements.forEach(function (el) {
+      gsap.to(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 80%',
+          once: true
+        },
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'power3.out'
+      });
+    });
+
+    // Stagger DJ cards
+    var djCards = document.querySelectorAll('.lineup-grid .dj-card');
+    if (djCards.length) {
+      gsap.to(djCards, {
+        scrollTrigger: {
+          trigger: '.lineup-grid',
+          start: 'top 80%',
+          once: true
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.08,
+        ease: 'power3.out'
+      });
+    }
+
+    // Stagger brand cards
+    var brandCards = document.querySelectorAll('.brand-grid .brand-card');
+    if (brandCards.length) {
+      gsap.to(brandCards, {
+        scrollTrigger: {
+          trigger: '.brand-grid',
+          start: 'top 80%',
+          once: true
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: 'power3.out'
+      });
+    }
+
+    // Stagger sponsor tiers
+    var tierCards = document.querySelectorAll('.sponsor-tiers .sponsor-tier');
+    if (tierCards.length) {
+      gsap.to(tierCards, {
+        scrollTrigger: {
+          trigger: '.sponsor-tiers',
+          start: 'top 80%',
+          once: true
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: 'power3.out'
+      });
+    }
+
+    // Stagger deliverable cards
+    var deliverableCards = document.querySelectorAll('.deliverables-grid .deliverable-card');
+    if (deliverableCards.length) {
+      gsap.to(deliverableCards, {
+        scrollTrigger: {
+          trigger: '.deliverables-grid',
+          start: 'top 80%',
+          once: true
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: 'power3.out'
+      });
+    }
+
+    // Stagger reach stats
+    var reachStats = document.querySelectorAll('.reach-stats .reach-stat');
+    if (reachStats.length) {
+      gsap.to(reachStats, {
+        scrollTrigger: {
+          trigger: '.reach-stats',
+          start: 'top 80%',
+          once: true
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: 'power3.out'
+      });
+    }
+
+    // Journey images stagger
+    var journeyEvents = document.querySelectorAll('.journey-event');
+    journeyEvents.forEach(function (event) {
+      var imgs = event.querySelectorAll('.journey-img');
+      if (imgs.length) {
+        gsap.to(imgs, {
+          scrollTrigger: {
+            trigger: event,
+            start: 'top 80%',
+            once: true
+          },
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.12,
+          ease: 'power3.out'
+        });
+      }
+    });
+  }
+
+  /* ---------- VIEW TRANSITIONS API (smooth navigation) ---------- */
+  function initViewTransitions() {
+    // Only if the browser supports View Transitions API
+    if (!document.startViewTransition) return;
+
+    // Intercept internal anchor clicks for smooth transitions
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest('a[href]');
+      if (!link) return;
+      var href = link.getAttribute('href');
+      // Only handle internal same-page anchors
+      if (!href || href.charAt(0) !== '#') return;
+
+      e.preventDefault();
+      var target = document.querySelector(href);
+      if (!target) return;
+
+      document.startViewTransition(function () {
+        target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  }
+
   /* ---------- INIT ALL ---------- */
   document.addEventListener('DOMContentLoaded', function () {
     initScrollProgress();
@@ -310,5 +462,7 @@
     initVideoLazyLoad();
     initParallax();
     initScrollIndicator();
+    initGSAPReveal();
+    initViewTransitions();
   });
 })();
