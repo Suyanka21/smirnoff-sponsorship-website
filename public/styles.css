@@ -1651,6 +1651,266 @@ body {
   letter-spacing: 0.1em;
 }
 
+/* ---------- SCENE IMAGE (background images for story scenes) ---------- */
+.scene-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* ---------- ARENA IMAGE WRAPPER (new HTML structure) ---------- */
+.arena-image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+.arena-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.arena-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, transparent 60%, rgba(0,0,0,0.6) 100%);
+}
+.arena-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 3rem;
+}
+
+/* ---------- JOURNEY NEW CLASSES (updated HTML structure) ---------- */
+.journey-event-images {
+  position: relative;
+}
+.journey-img-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.journey-event-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.journey-event-story {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.8;
+  margin-bottom: 0.75rem;
+}
+.journey-event-reverse {
+  direction: rtl;
+}
+.journey-event-reverse > * {
+  direction: ltr;
+}
+.journey-artists-strip {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.journey-artist-thumb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.journey-artist-thumb img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  transition: border-color 0.3s ease;
+}
+.journey-artist-thumb img:hover {
+  border-color: var(--neon-red);
+}
+.journey-artist-thumb span {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+.journey-headliner-label {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.journey-headliner-name {
+  padding: 0.4rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+/* ---------- COCKTAIL VIDEO GRID (replaces flipbook) ---------- */
+.cocktail-video-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.cocktail-video-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  cursor: pointer;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+}
+.cocktail-video-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(41, 121, 255, 0.2);
+}
+.cocktail-video-card video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.cocktail-video-card .cocktail-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.2) 60%, transparent 100%);
+  z-index: 1;
+}
+.cocktail-video-card .cocktail-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 1.25rem;
+  z-index: 2;
+}
+.cocktail-info h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--electric-blue);
+  margin-bottom: 0.35rem;
+}
+.cocktail-info p {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.5;
+}
+
+/* ---------- LINEUP CARDS (new HTML structure) ---------- */
+.lineup-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  cursor: pointer;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+}
+.lineup-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, transparent, transparent);
+  z-index: 0;
+  transition: background 0.5s ease;
+}
+.lineup-card:hover::before {
+  background: linear-gradient(135deg, var(--neon-red), var(--electric-blue));
+}
+.lineup-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 0 30px rgba(255, 23, 68, 0.3), 0 0 60px rgba(41, 121, 255, 0.15);
+}
+.lineup-card-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.lineup-portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.lineup-card:hover .lineup-portrait {
+  transform: scale(1.08);
+}
+.lineup-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 50%);
+  z-index: 1;
+}
+.lineup-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 1.5rem 1rem;
+  text-align: center;
+}
+.lineup-info h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ---------- BRAND CARD MEDIA/INFO (new HTML structure) ---------- */
+.brand-card-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.brand-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.brand-card-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2.5rem 2rem;
+  z-index: 2;
+}
+.brand-card-info h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.brand-card-info p {
+  font-size: 0.95rem;
+  color: var(--light-gray);
+}
+
+/* ---------- FOOTER TAGLINE ---------- */
+.footer-tagline {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 0.5rem;
+}
+.site-footer p {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 0.25rem;
+}
+
 /* ---------- GSAP REVEAL ANIMATION ---------- */
 .gsap-reveal {
   opacity: 0;
@@ -1727,7 +1987,8 @@ body {
     min-height: auto;
   }
 
-  .arena-content-col {
+  .arena-content-col,
+  .arena-content {
     padding: 3rem 2rem;
   }
 
@@ -1740,8 +2001,14 @@ body {
     gap: 2rem;
   }
 
-  .journey-event-gallery {
+  .journey-event-gallery,
+  .journey-img-grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .cocktail-video-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
   }
 
   .lineup-grid {
