@@ -129,29 +129,24 @@ body {
   align-items: center;
 }
 
-.hero-logo-circle {
-  width: 160px;
-  height: 160px;
+.hero-logo-wrapper {
+  width: 200px;
+  height: 200px;
+  background-color: #ffffff;
   border-radius: 50%;
-  background: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 2.5rem;
-  overflow: hidden;
-  box-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
-  animation: logoCirclePulse 3s ease-in-out infinite;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.hero-logo-img {
-  width: 120px;
-  height: 120px;
+.hero-logo {
+  width: 75%;
+  height: auto;
   object-fit: contain;
-}
-
-@keyframes logoCirclePulse {
-  0%, 100% { box-shadow: 0 0 30px rgba(255, 255, 255, 0.15), 0 0 60px rgba(255, 23, 68, 0.15); }
-  50% { box-shadow: 0 0 50px rgba(255, 255, 255, 0.25), 0 0 80px rgba(255, 23, 68, 0.3); }
+  filter: none;
+  mix-blend-mode: multiply;
 }
 
 .hero-titles {
@@ -940,7 +935,29 @@ body {
   height: auto;
   object-fit: contain;
   margin-bottom: 2rem;
-  filter: invert(1);
+  filter: invert(1) brightness(2);
+  mix-blend-mode: screen;
+}
+
+.circular-logo-wrapper {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.circular-logo-wrapper .scene-logo,
+.circular-logo-wrapper .slide-logo {
+  width: 75%;
+  height: auto;
+  margin-bottom: 0;
+  filter: none;
+  mix-blend-mode: multiply;
 }
 
 /* Slide deck lists */
@@ -1329,6 +1346,23 @@ body {
   text-align: center;
 }
 
+/* COMMUNITY STATEMENT */
+.community-statement {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 4rem 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.community-text {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
 /* ---------- DJ LINEUP SECTION (Step 5) ---------- */
 .lineup-section {
   padding: 8rem 2rem;
@@ -1635,13 +1669,9 @@ body {
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 768px) {
-  .hero-logo-circle {
-    width: 120px;
-    height: 120px;
-  }
-  .hero-logo-img {
-    width: 90px;
-    height: 90px;
+  .hero-logo-wrapper {
+    width: 150px;
+    height: 150px;
   }
 
   .stats-grid {
@@ -1739,13 +1769,9 @@ body {
 }
 
 @media (max-width: 480px) {
-  .hero-logo-circle {
-    width: 100px;
-    height: 100px;
-  }
-  .hero-logo-img {
-    width: 75px;
-    height: 75px;
+  .hero-logo-wrapper {
+    width: 120px;
+    height: 120px;
   }
 
   .stats-grid {
