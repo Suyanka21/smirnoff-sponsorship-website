@@ -1651,6 +1651,241 @@ body {
   letter-spacing: 0.1em;
 }
 
+/* ---------- SCENE IMAGE (for scene sections using img instead of video) ---------- */
+.scene-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* ---------- ARENA IMAGE WRAPPER ---------- */
+.arena-image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+.arena-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.arena-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, transparent 60%, rgba(0, 0, 0, 0.4) 100%);
+}
+.arena-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 3rem;
+}
+
+/* ---------- JOURNEY EVENT LAYOUT ---------- */
+.journey-event-images {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.journey-img-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.journey-event-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.journey-event-story {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.8;
+  margin-top: 0.75rem;
+}
+.journey-event-reverse {
+  direction: rtl;
+}
+.journey-event-reverse > * {
+  direction: ltr;
+}
+.journey-artists-strip {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+.journey-artist-thumb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.journey-artist-thumb img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+}
+.journey-artist-thumb span {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.journey-headliner-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--neon-red);
+}
+.journey-headliner-name {
+  padding: 0.4rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+/* ---------- COCKTAIL VIDEO GRID ---------- */
+.cocktail-visual {
+  width: 100%;
+}
+.cocktail-video-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+.cocktail-video-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+}
+.cocktail-video-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.cocktail-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.1) 50%, transparent 100%);
+  z-index: 1;
+}
+.cocktail-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.25rem 1rem;
+  z-index: 2;
+}
+.cocktail-info h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+.cocktail-info p {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.4;
+}
+
+/* ---------- LINEUP CARDS ---------- */
+.lineup-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  cursor: pointer;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+}
+.lineup-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 0 30px rgba(255, 23, 68, 0.3), 0 0 60px rgba(41, 121, 255, 0.15);
+}
+.lineup-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.lineup-portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.lineup-card:hover .lineup-portrait {
+  transform: scale(1.08);
+}
+.lineup-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 60%);
+  z-index: 1;
+}
+.lineup-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.25rem 1rem;
+  z-index: 2;
+  text-align: center;
+}
+.lineup-info h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ---------- BRAND CARD MEDIA ---------- */
+.brand-card-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.brand-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.brand-card-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2.5rem 2rem;
+  z-index: 2;
+}
+.brand-card-info h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.brand-card-info p {
+  font-size: 0.95rem;
+  color: var(--light-gray);
+}
+
+/* ---------- FOOTER TAGLINE ---------- */
+.footer-tagline {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 0.5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
 /* ---------- GSAP REVEAL ANIMATION ---------- */
 .gsap-reveal {
   opacity: 0;
@@ -1659,126 +1894,247 @@ body {
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 768px) {
+  /* Hero */
   .hero-logo-wrapper {
     width: 150px;
     height: 150px;
   }
 
+  /* Stats */
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
 
+  /* Audience */
   .audience-grid {
     grid-template-columns: 1fr;
   }
 
+  /* Activations */
   .activation-grid {
     grid-template-columns: 1fr;
   }
-
-  .cocktail-layout {
-    grid-template-columns: 1fr;
-    gap: 3rem;
+  .activation-card {
+    aspect-ratio: 16 / 9;
   }
 
+  /* Cocktail section */
+  .cocktail-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .cocktail-text .scene-chapter,
+  .cocktail-text .section-title,
+  .cocktail-text .section-subtitle {
+    text-align: center;
+  }
+  .cocktail-video-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  /* Partnership highlights */
   .partnership-highlights {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
 
+  /* Deck modal */
   .format-grid {
     grid-template-columns: 1fr;
   }
-
   .cocktail-list, .activation-list {
     grid-template-columns: 1fr;
   }
-
   .deck-header {
     padding: 1rem 1.25rem;
   }
-
   .slide-body {
     padding: 3rem 1.5rem;
   }
-
+  .slide-body h2 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+  }
   .deck-nav {
     padding: 1rem 1.5rem;
   }
-
-  .nav-btn {
+  .nav-btn,
+  .deck-nav-btn {
     width: 44px;
     height: 44px;
   }
+  .slide-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .circular-logo-wrapper {
+    width: 130px;
+    height: 130px;
+  }
 
+  /* Scenes */
   .scene-content {
     padding: 1.5rem;
   }
-
-  .closing-logo {
-    width: 90px;
-    height: 90px;
+  .scene-content-wide {
+    padding: 4rem 1.5rem;
+  }
+  .cinematic-quote {
+    font-size: clamp(1.4rem, 4vw, 2.5rem);
   }
 
-  /* New sections responsive */
+  /* Closing */
+  .closing-logo,
+  .footer-logo {
+    width: 90px;
+    height: auto;
+  }
+
+  /* Arena section */
   .arena-section {
     grid-template-columns: 1fr;
     min-height: auto;
   }
-
+  .arena-image-wrapper {
+    min-height: 250px;
+  }
+  .arena-content {
+    padding: 3rem 1.5rem;
+  }
   .arena-content-col {
     padding: 3rem 2rem;
   }
-
   .arena-features {
     grid-template-columns: 1fr;
   }
 
+  /* Journey events */
+  .journey-section {
+    padding: 5rem 1.5rem;
+  }
   .journey-event {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-
+  .journey-event-reverse {
+    direction: ltr;
+  }
+  .journey-img-grid {
+    grid-template-columns: 1fr 1fr;
+  }
   .journey-event-gallery {
     grid-template-columns: 1fr 1fr;
   }
+  .journey-artists-strip {
+    justify-content: center;
+  }
 
+  /* Lineup */
+  .lineup-section {
+    padding: 5rem 1.5rem;
+  }
   .lineup-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
 
+  /* Brand partners */
+  .brand-partners-section {
+    padding: 5rem 1.5rem;
+  }
   .brand-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .brand-card {
+    aspect-ratio: 16 / 9;
+  }
+  .brand-card-info {
+    padding: 1.5rem 1.25rem;
   }
 
+  /* Sponsorship tiers */
+  .sponsorship-section {
+    padding: 5rem 1.5rem;
+  }
   .sponsor-tiers {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
+  /* Deliverables */
+  .deliverables-section {
+    padding: 5rem 1.5rem;
+  }
   .deliverables-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
+  /* Digital Reach */
+  .digital-reach-section {
+    padding: 5rem 1.5rem;
+  }
   .reach-stats {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+
+  /* Cultural Moment */
+  .community-section {
+    background-attachment: scroll;
+  }
+  .community-content {
+    padding: 4rem 1.5rem;
+  }
+
+  /* Partnership */
+  .partnership-content {
+    padding: 3rem 1.5rem;
+  }
+  .partnership-intro {
+    font-size: 1rem;
+  }
+
+  /* Experience */
+  .experience-section {
+    padding: 5rem 1.5rem;
+  }
+
+  /* Audience */
+  .audience-section {
+    padding: 5rem 1.5rem;
+  }
+
+  /* Story scenes */
+  .story-scene {
+    min-height: 70vh;
+  }
 }
 
 @media (max-width: 480px) {
+  /* Hero */
   .hero-logo-wrapper {
     width: 120px;
     height: 120px;
   }
+  .hero-tagline {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+  }
 
+  /* Stats */
   .stats-grid {
     grid-template-columns: 1fr 1fr;
   }
 
+  /* Partnership */
   .partnership-highlights {
     grid-template-columns: 1fr 1fr;
+  }
+  .highlight-number {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
   }
 
   .cta-button {
@@ -1786,7 +2142,97 @@ body {
     font-size: 0.9rem;
   }
 
+  /* Deck */
   .deck-dots {
     display: none;
+  }
+  .slide-body {
+    padding: 2.5rem 1.25rem;
+  }
+  .slide-body p {
+    font-size: 0.95rem;
+  }
+
+  /* Cocktail video grid - stack on very small screens */
+  .cocktail-video-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+  .cocktail-info h3 {
+    font-size: 0.85rem;
+  }
+  .cocktail-info p {
+    font-size: 0.7rem;
+  }
+  .cocktail-info {
+    padding: 0.75rem 0.5rem;
+  }
+
+  /* Journey */
+  .journey-img-grid {
+    grid-template-columns: 1fr;
+  }
+  .journey-img {
+    height: 180px;
+  }
+  .journey-event-title {
+    font-size: 1.3rem;
+  }
+
+  /* Lineup */
+  .lineup-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  .lineup-info h3 {
+    font-size: 0.85rem;
+  }
+
+  /* Section headers */
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
+  .section-title {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+  }
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+
+  /* Scenes */
+  .scene-text {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+  }
+  .scene-subtext {
+    font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+  }
+
+  /* Sponsor tiers */
+  .sponsor-tier {
+    padding: 2rem 1.5rem;
+  }
+  .tier-brand {
+    font-size: 1.4rem;
+  }
+
+  /* Deliverables */
+  .deliverable-card {
+    padding: 2rem 1.5rem;
+  }
+
+  /* Reach */
+  .reach-stat {
+    padding: 2rem 1.5rem;
+  }
+  .reach-number {
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+
+  /* Footer */
+  .site-footer {
+    padding: 2rem 1.5rem;
+  }
+  .footer-logo {
+    width: 80px;
   }
 }
