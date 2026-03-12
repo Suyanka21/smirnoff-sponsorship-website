@@ -238,31 +238,92 @@
     }, { passive: true });
   }
 
-  /* ---------- VIDEO LAZY LOADING ---------- */
-  function initVideoLazyLoad() {
-    var videos = document.querySelectorAll('video[preload="metadata"]');
+  /* ---------- VIDEO AUTOPLAY (iOS/Safari robust) ---------- */
+  function initVideoAutoplay() {
+    var allVideos = document.querySelectorAll('video');
 
+    // Ensure all videos have correct attributes for iOS autoplay
+    allVideos.forEach(function (video) {
+      video.setAttribute('playsinline', '');
+      video.setAttribute('webkit-playsinline', '');
+      video.setAttribute('muted', '');
+      video.muted = true;
+      video.setAttribute('autoplay', '');
+      video.setAttribute('loop', '');
+    });
+
+    // Attempt to play a single video with retry
+    function tryPlay(video) {
+      if (!video || !video.paused) return;
+      video.muted = true;
+      var playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(function () {
+          // If play fails, wait for canplay event then retry once
+          video.addEventListener('canplay', function onCanPlay() {
+            video.removeEventListener('canplay', onCanPlay);
+            video.muted = true;
+            video.play().catch(function () {});
+          }, { once: true });
+          // Force load to trigger canplay
+          video.load();
+        });
+      }
+    }
+
+    // Play all visible videos via IntersectionObserver
     var videoObserver = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            var video = entry.target;
-            var playPromise = video.play();
-            if (playPromise !== undefined) {
-              playPromise.catch(function () {
-                // Autoplay prevented, fallback to poster
-              });
-            }
-            videoObserver.unobserve(video);
+            tryPlay(entry.target);
           }
         });
       },
-      { threshold: 0.1, rootMargin: '200px 0px' }
+      { threshold: 0.05, rootMargin: '300px 0px' }
     );
 
-    videos.forEach(function (video) {
+    allVideos.forEach(function (video) {
       videoObserver.observe(video);
     });
+
+    // On first user interaction (touch/click), force-play all videos
+    // This is the KEY fix for iOS Safari which gates autoplay behind user gesture
+    var hasInteracted = false;
+    function onFirstInteraction() {
+      if (hasInteracted) return;
+      hasInteracted = true;
+      allVideos.forEach(function (video) {
+        video.muted = true;
+        video.play().catch(function () {});
+      });
+      document.removeEventListener('touchstart', onFirstInteraction);
+      document.removeEventListener('touchend', onFirstInteraction);
+      document.removeEventListener('click', onFirstInteraction);
+      document.removeEventListener('scroll', onFirstInteraction);
+    }
+    document.addEventListener('touchstart', onFirstInteraction, { passive: true });
+    document.addEventListener('touchend', onFirstInteraction, { passive: true });
+    document.addEventListener('click', onFirstInteraction, { passive: true });
+    document.addEventListener('scroll', onFirstInteraction, { passive: true });
+
+    // Periodically check for paused videos and restart them (covers edge cases)
+    setInterval(function () {
+      allVideos.forEach(function (video) {
+        if (video.paused && isElementInViewport(video)) {
+          video.muted = true;
+          video.play().catch(function () {});
+        }
+      });
+    }, 3000);
+  }
+
+  function isElementInViewport(el) {
+    var rect = el.getBoundingClientRect();
+    return (
+      rect.bottom > 0 &&
+      rect.top < (window.innerHeight || document.documentElement.clientHeight)
+    );
   }
 
   /* ---------- PARALLAX EFFECT ON SCENES ---------- */
@@ -459,7 +520,7 @@
     initFadeIn();
     initCocktailFlipper();
     initDeck();
-    initVideoLazyLoad();
+    initVideoAutoplay();
     initParallax();
     initScrollIndicator();
     initGSAPReveal();

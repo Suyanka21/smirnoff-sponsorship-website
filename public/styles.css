@@ -94,6 +94,14 @@ body {
   justify-content: center;
 }
 
+/* iOS Safari: hide native play button on background videos */
+video::-webkit-media-controls-start-playback-button,
+video::-webkit-media-controls-play-button,
+video::-webkit-media-controls {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
 .hero-video {
   position: absolute;
   top: 50%;
